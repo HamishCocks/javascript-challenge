@@ -1,0 +1,53 @@
+<html lang="en">
+​
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aliens?!?!?</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form id="form">
+            <div class="form-group">
+              <label for="date-form">DATE</label>
+              <input class="form-control" id="date-form-input" name="date-form" type="text" placeholder="M/DD/YYYY">
+            </div>
+            <button id="button" type="button" class="btn btn-default">Abduct!</button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Alien Sightings</h1>
+          <ul class="summary"></ul>
+          <table id = "myTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Shape</th>
+                <th>Duration</th>
+                <th>Comment</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/js_data.js"></script>
+  <script src="js/app.js"></script>
+  ​
+  </html>
