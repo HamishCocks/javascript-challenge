@@ -42,39 +42,36 @@ function runAlien() {
 
     var inputValue = inputElement.property("value");
 
-    console.log(inputValue);
+    console.log(inputValue); //type is string
 
-    var filteredData = sightings.filter(dates => dates.datetime === inputValue);
+    //convert the inputvalue from forma (YYY-MM-DD) to a string format similar to data
+
+    var parts =inputValue.split('-');
+    
+    var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+    
+    console.log(typeof mydate);
+    console.log(mydate);
+
+    var myDateStr = mydate.toLocaleDateString("en-US", { month: 'numeric' }) + "/" + mydate.toLocaleDateString("en-US", { day: 'numeric' }) + "/" + mydate.toLocaleDateString("en-US", { year: 'numeric' });
+
+    console.log(typeof myDateStr);
+    console.log(myDateStr);
+
+    
+    var filteredData = sightings.filter(dates => dates.datetime === myDateStr);
 
     console.log(filteredData);
 
+    var tbody = d3.select("tbody");
 
-    //past here is just messing around, haven't got anywhere
+    tbody.html("")
 
+    filteredData.forEach(filterTable => {
+        var filRow = tbody.append("tr");
 
-    var table = d3.select("#myTable");
-
-    console.log(table);
-
-    var tr = d3.select("tr");
-
-    console.log(tr);
-
-    var td = tr.d3.select("td")[0];
-
-    console.log(td);
-
-    for (var i=0; i < Object.keys(tr).length; i++) {
-        var td = tr[i].d3.selectAll("td")[0];
-        if (td) {
-            Value = d3.select("td").text();
-            console.log(Value);
-            // if (Value === inputValue) {
-            //     console.log(tr[i]);
-            // } else {
-            //     console.log("none");
-            // }
-        }
-    }
-
+        Object.values(filterTable).forEach(value => {
+            filRow.append("td").text(value);
+        });
+    });
 };
